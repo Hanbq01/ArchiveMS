@@ -1,0 +1,42 @@
+.container-fluid {
+    width: 90%;
+    margin: auto;
+}
+h2 {
+    margin-top: 20px;
+    text-align: left;
+}
+hr {
+    border: 1px solid #000;
+}
+form {
+    width: 75%;
+    margin: auto;
+    display: grid;
+    gap: 10px;
+    align-items: center;
+}
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.input-row input {
+    width: 50%;
+}
+.input-row span {
+    width: 25%;
+    font-size: 0.8em;
+    color: gray;
+    text-align: right;
+}
+select#year {
+    width: 50%;
+}
+select#type{
+    width: 50%;
+}
+textarea#notes{
+    width: 50%;
+}

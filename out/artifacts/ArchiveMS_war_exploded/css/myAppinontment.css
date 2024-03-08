@@ -1,0 +1,21 @@
+.container-fluid {
+    width: 90%;
+    margin: auto;
+}
+
+h2 {
+    margin-top: 20px;
+    text-align: left;
+}
+
+hr {
+    border: 1px solid #000;
+}
+
+.table td, .table th {
+    border: 1px solid #dee2e6;
+}
+
+.form-group{
+    margin-top: 20px;
+}
