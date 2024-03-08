@@ -2,6 +2,7 @@ package com.dai.model;
 
 public class User {
     private int id;
+    private String idCard;
     private String username;
     private String password;
     private int role;
@@ -19,6 +20,14 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getIdCard() {
+        return idCard;
+    }
+
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
     }
 
     public String getUsername() {

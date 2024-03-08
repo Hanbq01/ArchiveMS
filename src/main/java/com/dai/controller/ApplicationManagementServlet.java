@@ -41,9 +41,9 @@ public class ApplicationManagementServlet extends HttpServlet {
 
             System.out.println(applicant.getReviewDate());
 
-            // 检查是否超过5天
+            // 检查是否超过15天
             long daysBetween = ChronoUnit.DAYS.between(reviewDate, now);
-            if (daysBetween > 5) {
+            if (daysBetween > 15) {
                 myAppointmentService.cancelAppointment(applicant.getId(), req);
             }
         }

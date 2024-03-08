@@ -24,6 +24,10 @@
                 <span id="username">${user.username}</span>
             </div>
             <div class="input-row">
+                <label for="idcard">身份证号:</label>
+                <span id="idcard">${user.idCard}</span>
+            </div>
+            <div class="input-row">
                 <label for="birthdate">出生日期:</label>
                 <span id="birthdate">${user.birthdate}</span>
             </div>
@@ -105,6 +109,11 @@
                                 <label for="modal_username" class="form-label">用户名</label>
                                 <input type="text" class="form-control" id="modal_username" name="username"
                                        value="${user.username}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="modal_idcard" class="form-label">身份证号</label>
+                                <input type="text" class="form-control" id="modal_idcard" name="idcard"
+                                       value="${user.idCard}">
                             </div>
                             <div class="mb-3">
                                 <label for="modal_birthdate" class="form-label">出生日期</label>

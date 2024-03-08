@@ -13,7 +13,7 @@
 <div class="container-fluid">
     <h2>我的预约信息</h2>
     <hr>
-
+    <p style="color: red">未通过审核请自行查看审核意见，并重新预约</p>
     <table class="table table-striped table-hover">
         <thead>
         <tr style="text-align: center">

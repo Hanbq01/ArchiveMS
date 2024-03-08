@@ -28,7 +28,7 @@ $(document).ready(function () {
     });
     $('#managementPersonnel').click(function () {
         // hideModal();
-        $('#content').load('managementPersonnel.jsp');//管理人员
+        $('#content').load('ManagementPersonnelServlet');//管理人员
     });
 
     // 鼠标悬停显示下拉菜单

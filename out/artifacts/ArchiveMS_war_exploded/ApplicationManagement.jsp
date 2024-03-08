@@ -82,7 +82,7 @@
 <div class="container-fluid">
     <h2>我的预约信息</h2>
     <hr>
-
+    <p style="color: red">预约信息15天后自动清除，请尽快审核</p>
     <table class="table table-striped table-hover">
         <thead>
         <tr style="text-align: center">
@@ -212,7 +212,6 @@
                         <label for="notes">备注</label>
                         <textarea class="form-control" id="notes" rows="3" readonly></textarea>
                     </div>
-
                 </form>
             </div>
             <div class="modal-footer">

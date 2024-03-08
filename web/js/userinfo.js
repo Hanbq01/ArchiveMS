@@ -34,7 +34,7 @@ $('form[action="UploadServlet"]').submit(function (e) {
                 $('body').append(alertDiv);
                 setTimeout(function () {
                     $(alertDiv).fadeOut('slow');
-                },3000);
+                }, 3000);
             }
         },
         cache: false,
@@ -52,6 +52,7 @@ $(document).ready(function () {
         var formData = {
             'real_name': $('#modal_real_name').val(),
             'username': $('#modal_username').val(),
+            'idcard': $('modal_idcard').val(),
             'birthdate': $('#modal_birthdate').val(),
             'address': $('#modal_address').val(),
             'email': $('#modal_email').val(),
@@ -70,7 +71,7 @@ $(document).ready(function () {
                 $('body').append(alertDiv);
                 setTimeout(function () {
                     $(alertDiv).fadeOut('slow');
-                },3000);
+                }, 3000);
             }
         });
     });
@@ -103,7 +104,7 @@ $(document).ready(function () {
                 $('body').append(alertDiv);
                 setTimeout(function () {
                     $(alertDiv).fadeOut('slow');
-                },3000);
+                }, 3000);
             }
         });
     });

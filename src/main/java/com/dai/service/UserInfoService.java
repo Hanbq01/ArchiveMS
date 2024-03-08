@@ -31,6 +31,7 @@ public class UserInfoService {
             user.setPhone(rs.getString("phone"));
             user.setJob(rs.getString("job"));
             user.setHead_path(rs.getString("head_path"));
+            user.setIdCard(rs.getString("idcard"));
             return user;
         }
 
@@ -46,7 +47,7 @@ public class UserInfoService {
     }
 
     public void updateUser(User user) throws SQLException {
-        String sql = "UPDATE user SET real_name = ?, username = ?, birthdate = ?, address = ?, email = ?, phone = ?, job = ? WHERE id = ?";
+        String sql = "UPDATE user SET real_name = ?,username = ?, birthdate = ?, address = ?, email = ?, phone = ?, job = ?, idcard=? WHERE id = ?";
         PreparedStatement stmt = conn.prepareStatement(sql);
         stmt.setString(1, user.getReal_name());
         stmt.setString(2, user.getUsername());
@@ -55,16 +56,18 @@ public class UserInfoService {
         stmt.setString(5, user.getEmail());
         stmt.setString(6, user.getPhone());
         stmt.setString(7, user.getJob());
-        stmt.setInt(8, user.getId());
+        stmt.setString(8, user.getIdCard());
+        stmt.setInt(9, user.getId());
         stmt.executeUpdate();
     }
-        public void changePassword(int id, String newPassword) throws Exception {
-            String sql = "UPDATE user SET password = ? WHERE id = ?";
-            try (Connection conn = DBUtil.getConnection();
-                 PreparedStatement ps = conn.prepareStatement(sql)) {
-                ps.setString(1, newPassword);
-                ps.setString(2, String.valueOf(id));
-                ps.executeUpdate();
-            }
+
+    public void changePassword(int id, String newPassword) throws Exception {
+        String sql = "UPDATE user SET password = ? WHERE id = ?";
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, newPassword);
+            ps.setString(2, String.valueOf(id));
+            ps.executeUpdate();
         }
     }
+}
