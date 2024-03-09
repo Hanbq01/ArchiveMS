@@ -60,8 +60,14 @@ function submitForm() {
     });
 }
 
-// 在“保存更改”按钮的点击事件中调用submitForm函数
-document.querySelector('.btn-primary').addEventListener('click', submitForm);
+document.addEventListener('DOMContentLoaded', function () {
+    var btnPrimary = document.querySelector('.btn-primary');
+    if (btnPrimary) {
+        btnPrimary.addEventListener('click', submitForm);
+    } else {
+        console.error('Element with class .btn-primary not found');
+    }
+});
 
 function deleteUser(id) {
     $.ajax({
@@ -85,3 +91,18 @@ function deleteUser(id) {
         }
     });
 }
+
+$(document).ready(function () {
+    $('form').on('submit', function (event) {
+        event.preventDefault();
+        var formData = $(this).serialize();
+        $('#content').load('UserSearchServlet?' + formData, function() {
+            var alertDiv = $('<div class="alert alert-success" role="alert" style="width: 200px; position: fixed; top: 20px; right: 20px;"><h5><strong>提示</strong></h5>操作成功！</div>');
+            $('body').append(alertDiv);
+            setTimeout(function () {
+                $(alertDiv).fadeOut('slow');
+            }, 3000);
+        });
+    });
+});
+

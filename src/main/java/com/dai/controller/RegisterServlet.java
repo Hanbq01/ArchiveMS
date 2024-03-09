@@ -39,6 +39,7 @@ public class RegisterServlet extends HttpServlet {
         user.setEmail(request.getParameter("email"));
         user.setPhone(request.getParameter("phone"));
         user.setJob(request.getParameter("job"));
+        user.setIdCard("idCard");
 
         try {
             registerService.saveUser(user);

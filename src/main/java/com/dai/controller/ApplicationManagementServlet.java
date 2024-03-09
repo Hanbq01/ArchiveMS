@@ -35,19 +35,22 @@ public class ApplicationManagementServlet extends HttpServlet {
         LocalDateTime now = LocalDateTime.now();
 
         for (Applicant applicant : applicants) {
-            // 解析reviewDate
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-            LocalDateTime reviewDate = LocalDateTime.parse(applicant.getReviewDate(), formatter);
+            String reviewDateString = applicant.getReviewDate();
+            if (reviewDateString != null) {
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                LocalDateTime reviewDate = LocalDateTime.parse(reviewDateString, formatter);
 
-            System.out.println(applicant.getReviewDate());
+                System.out.println(reviewDateString);
 
-            // 检查是否超过15天
-            long daysBetween = ChronoUnit.DAYS.between(reviewDate, now);
-            if (daysBetween > 15) {
-                myAppointmentService.cancelAppointment(applicant.getId(), req);
+                // 检查是否超过15天
+                long daysBetween = ChronoUnit.DAYS.between(reviewDate, now);
+                if (daysBetween > 15) {
+                    myAppointmentService.cancelAppointment(applicant.getId(), req);
+                }
+            } else {
+                System.out.println("Review date is null for applicant with ID: " + applicant.getId());
             }
         }
-
         req.setAttribute("applicants", applicants);
         req.getRequestDispatcher("ApplicationManagement.jsp").forward(req, resp);
     }

@@ -12,7 +12,7 @@ public class RegisterService {
     }
 
     public void saveUser(User user) throws SQLException {
-        String sql = "INSERT INTO user (real_name, username, password, role, birthdate, address, email, phone, job) VALUES (?, ?, ?, 1, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO user (real_name, username, password, role, birthdate, address, email, phone, job,idcard) VALUES (?, ?, ?, 1, ?, ?, ?,?, ?, ?)";
         PreparedStatement stmt = conn.prepareStatement(sql);
         stmt.setString(1, user.getReal_name());
         stmt.setString(2, user.getUsername());
@@ -22,6 +22,7 @@ public class RegisterService {
         stmt.setString(6, user.getEmail());
         stmt.setString(7, user.getPhone());
         stmt.setString(8, user.getJob());
+        stmt.setString(9, user.getIdCard());
         stmt.executeUpdate();
     }
 }

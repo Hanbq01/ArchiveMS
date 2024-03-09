@@ -54,7 +54,7 @@ public class ManagementPersonnelService {
         }
     }
 
-    public void deleteUser(int id, String realName) {
+    public void deleteUser(int id) {
         try (Connection conn = DBUtil.getConnection()) {
             // 再删除user表中的记录
             String sqlUser = "DELETE FROM user WHERE id = ?";
@@ -66,4 +66,35 @@ public class ManagementPersonnelService {
         }
     }
 
+    public List<User> searchUsers(String realName, String idCard) {
+        List<User> users = new ArrayList<>();
+        try (Connection conn = DBUtil.getConnection()) {
+            String sql = "SELECT * FROM user WHERE real_name LIKE ? AND idCard LIKE ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, "%" + realName + "%");
+            stmt.setString(2, "%" + idCard + "%");
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                User user = new User();
+                user.setId(rs.getInt("id"));
+                user.setIdCard(rs.getString("idCard"));
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setRole(rs.getInt("role"));
+                user.setReal_name(rs.getString("real_name"));
+                user.setBirthdate(rs.getString("birthdate"));
+                user.setAddress(rs.getString("address"));
+                user.setEmail(rs.getString("email"));
+                user.setPhone(rs.getString("phone"));
+                user.setJob(rs.getString("job"));
+                user.setHead_path(rs.getString("head_path"));
+
+                users.add(user);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return users;
+    }
 }
+

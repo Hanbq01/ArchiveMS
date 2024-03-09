@@ -51,6 +51,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="#" id="managementPersonnel">管理人员</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" id="chart">数据分析</a>
+            </li>
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item dropdown">

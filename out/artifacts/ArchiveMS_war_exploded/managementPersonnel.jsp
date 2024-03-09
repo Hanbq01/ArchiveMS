@@ -13,6 +13,25 @@
 <div class="container-fluid">
     <h2>管理人员</h2>
     <hr>
+    <form action="UserSearchServlet" method="get" class="row g-3 align-items-center" style="margin-bottom: 10px">
+        <div class="col-auto">
+            <label for="real_name" class="col-form-label">姓名</label>
+        </div>
+        <div class="col-auto">
+            <input type="text" class="form-control" id="real_name" name="real_name" placeholder="输入姓名">
+        </div>
+        <div class="col-auto">
+            <label for="idCard" class="col-form-label">身份证号</label>
+        </div>
+        <div class="col-auto">
+            <input type="text" class="form-control" id="idCard" name="idCard" placeholder="输入身份证号">
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-success">搜索</button>
+        </div>
+    </form>
+
+
     <table class="table table-striped table-hover">
         <thead>
         <tr style="text-align: center">

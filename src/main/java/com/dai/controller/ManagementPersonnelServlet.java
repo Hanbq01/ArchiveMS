@@ -23,8 +23,7 @@ public class ManagementPersonnelServlet extends HttpServlet {
         String action = req.getParameter("action");
         if ("delete".equals(action)) {
             String id = req.getParameter("id");
-            String realName = req.getParameter("realName");
-            managementPersonnelService.deleteUser(Integer.parseInt(id), realName);
+            managementPersonnelService.deleteUser(Integer.parseInt(id));
         }
         req.setAttribute("users", managementPersonnelService.getAllUsers());
         req.getRequestDispatcher("managementPersonnel.jsp").forward(req, resp);

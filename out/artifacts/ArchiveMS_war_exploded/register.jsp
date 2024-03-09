@@ -89,6 +89,11 @@
             <span>此项为必填项。</span>
         </div>
         <div class="input-row">
+            <label for="idCard">身份证号:</label>
+            <input type="date" id="idCard" name="idCard" class="form-control" required>
+            <span>此项为必填项。</span>
+        </div>
+        <div class="input-row">
             <label for="birthdate">出生日期:</label>
             <input type="date" id="birthdate" name="birthdate" class="form-control">
             <span>此项可以为空。</span>
